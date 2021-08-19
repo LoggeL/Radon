@@ -1,21 +1,35 @@
-import { Client } from 'discord.js';
-
-export class RadonClient extends Client {
+import { Constants, CommandClient, ShardClient,  } from 'detritus-client';
+require('dotenv/config');
+if (!process.env.DISCORD_TOKEN) throw new Error('NO_TOKEN');
+export class RadonClient extends CommandClient {
     
 
-    constructor() {
-        super({
-            intents: [
-                'DIRECT_MESSAGES',
-                'GUILDS',
-                'GUILD_MESSAGES'
-            ]
+    constructor(client: ShardClient) {
+        super(client,
+            { 
+                gateway: {
+                    intents: 'ALL',
+                    presence: {
+                        activities: [{
+                            name: 'watching /help',
+                            type: Constants.ActivityTypes.STREAMING,
+                            // :)
+                            url: 'https://www.twitch.tv/rick_astley'
+                        }]
+                    }
+                }
+            // intents: [
+            //     'DIRECT_MESSAGES',
+            //     'GUILDS',
+            //     'GUILD_MESSAGES'
+            // ]
         });
     }
 
     async start() {
         try {
-            await this.login();
+
+            await this.start();
         } catch (error) {
             
         }

@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "discord.js": "^13.1.0"
+    "detritus-client": "^0.16.1"
   }
 }

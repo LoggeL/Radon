@@ -1,9 +1,25 @@
+import { ShardClient } from 'detritus-client';
 import { RadonClient } from './Structures/Client';
+
+interface RADON_ENV {
+    DISCORD_TOKEN: string;
+    NODE_ENV: 'dev' | 'prod' | 'prem';
+
+}
 
 
 async function main() {
-    const client = new RadonClient();
-    await client.start();
+    checkEnv();
+    const env = process.env as unknown as RADON_ENV;
+    const client = new ShardClient(env.DISCORD_TOKEN);
+    const commandClient = new RadonClient(client);
+    await commandClient.start();
+}
+
+function  checkEnv() {
+
+
+    
 }
 
 main();
