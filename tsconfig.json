@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "experimentalDecorators": true,
+    // "lib": [ "ES2020"],
+    // "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "outDir": "dist",
+    "pretty": true,
+    "strict": true,
+    "target": "ES2020"
+  },
+}
