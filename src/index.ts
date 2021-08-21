@@ -22,4 +22,4 @@ function  checkEnv() {
     
 }
 
-main();
+main().catch(console.error);

@@ -1,5 +1,13 @@
 {
   "dependencies": {
-    "detritus-client": "^0.16.1"
-  }
+    "detritus-client": "^0.16.1",
+    "dotenv": "^10.0.0",
+    "typescript": "^4.3.5"
+  },
+  "name": "radon",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/LoggeL/Radon",
+  "author": "snips <70811215+JastLucy@users.noreply.github.com",
+  "license": "MIT"
 }

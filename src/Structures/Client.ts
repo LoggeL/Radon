@@ -1,9 +1,10 @@
 import { Constants, CommandClient, ShardClient,  } from 'detritus-client';
+import { Api } from './Api';
 require('dotenv/config');
 if (!process.env.DISCORD_TOKEN) throw new Error('NO_TOKEN');
 export class RadonClient extends CommandClient {
-    
-
+    client!: ShardClient;
+    api: Api;
     constructor(client: ShardClient) {
         super(client,
             { 
@@ -24,12 +25,12 @@ export class RadonClient extends CommandClient {
             //     'GUILD_MESSAGES'
             // ]
         });
+        this.api = new Api(this);
     }
 
     async start() {
         try {
-
-            await this.start();
+            await super.run();
         } catch (error) {
             
         }
