@@ -1,16 +1,25 @@
 import { BaseCommand } from '@radon-types/command';
-import { Constants, Interaction } from 'detritus-client'
+import { 
+    Interaction, Constants,
+    InteractionCommandClient
+ } from 'detritus-client';
 const { InteractionCallbackTypes } = Constants;
 
-module.exports = {
-    description: 'foo',
-    name: 'foo',
-    global: true,
-    // options: {
-    //     adminOnly: false // demo    
-    // },
-    run: async (context: Interaction.InteractionContext) => {
-        console.log('ping');
-        return await context.respond(InteractionCallbackTypes.CHANNEL_MESSAGE_WITH_SOURCE, 'bar');
+export default class PingCommand extends Interaction.InteractionCommand {
+
+    constructor() {
+        super( {
+            name: 'ping',
+            description: 'Ping the bot.',
+            options: []
+        });
     }
+
+    async run(ctx: Interaction.InteractionContext) {
+        await ctx.editOrRespond({
+            content: 'PONG!',
+            flags: 64
+        });
+    }
+
 }
