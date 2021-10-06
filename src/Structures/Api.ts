@@ -1,5 +1,5 @@
 import { RadonClient } from './Client';
-import {RequestTypes } from 'detritus-client-rest';
+import { RequestTypes } from 'detritus-client-rest';
 import { Guild, User } from 'detritus-client/lib/structures';
 import { BackupData } from '@radon-types/backups';
 import { inspect } from 'util';
@@ -24,26 +24,26 @@ export class Api {
     encryptBackup(backup: BackupData): string {
         const backupstr = inspect(backup);
         process.env.SALT = process.env.SALT || this.generateId(69);
-        
-        return crypto.createHash('sha512', {encoding: 'base64'})
-        .update(backupstr)
-        .update(process.env.SALT)
-        .update(this.generateId(69))
-        .update(this.generateId(69))
-        .update(this.generateId(69))
-        .update(this.generateId(69))
-        .update(this.generateId(69))
-        .update(this.generateId(69))
-        .update(this.generateId(69))
-        .digest().toString('hex');
-    
+
+        return crypto.createHash('sha512', { encoding: 'base64' })
+            .update(backupstr)
+            .update(process.env.SALT)
+            .update(this.generateId(69))
+            .update(this.generateId(69))
+            .update(this.generateId(69))
+            .update(this.generateId(69))
+            .update(this.generateId(69))
+            .update(this.generateId(69))
+            .update(this.generateId(69))
+            .digest().toString('hex');
+
     }
 
-    async createBackup(guid: Guild, creator: User): Promise<BackupData>  {
+    async createBackup(guid: Guild, creator: User): Promise<BackupData> {
         const data = {} as BackupData;
         data.id = this.generateId(15);
         data.creator = creator.id;
-        data.roles = guid.roles.map(r => r.toJSON()); 
+        data.roles = guid.roles.map(r => r.toJSON());
         data.roles = guid.channels.map(c => c.toJSON());
 
         // if (guid.channels.map())

@@ -1,6 +1,7 @@
-import { ShardClient } from 'detritus-client';
+import { InteractionCommandClient, ShardClient } from 'detritus-client';
 import { RadonClient } from './Structures/Client';
 import { readdir } from 'fs'
+import { InteractionCommand } from 'detritus-client/lib/interaction';
 
 interface RADON_ENV {
     DISCORD_TOKEN: string;
@@ -14,7 +15,7 @@ async function main() {
     const client = new ShardClient(env.DISCORD_TOKEN);
     const commandClient = new RadonClient(client);
     await commandClient.start();
-    loadCommands()
+    loadCommands(commandClient)
 }
 
 function checkEnv() {
@@ -24,7 +25,7 @@ function checkEnv() {
     process.exit();
 }
 
-function loadCommands() {
+function loadCommands(commandClient: InteractionCommandClient) {
     console.log('Loading Commands')
     readdir(`${__dirname}/Commands`, (err, files: string[]) => {
         if (err) {
@@ -32,11 +33,16 @@ function loadCommands() {
             return;
         }
         for (const fileName of files.filter((file) => file.endsWith('.js'))) {
-            const command = require(`${__dirname}/Commands/${fileName}`);
+            const command = require(`${__dirname}/Commands/${fileName}`) as InteractionCommand;
             console.log('Loading Command', command.name);
-            // TODO: Command in listener
+            console.log(command)
+            commandClient.add(command)
         }
     })
+
+    // Mess to get the commmand to register
+    commandClient.uploadApplicationCommands('412986571944361984').then(console.log).catch(console.error);
+    commandClient.checkAndUploadCommands().then(console.log).catch(console.error)
 }
 
 main().catch(console.error);

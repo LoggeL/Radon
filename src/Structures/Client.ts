@@ -1,8 +1,8 @@
-import { Constants, CommandClient, ShardClient } from 'detritus-client';
+import { Constants, InteractionCommandClient, ShardClient } from 'detritus-client';
 import { Api } from './Api';
 require('dotenv/config');
 if (!process.env.DISCORD_TOKEN) throw new Error('NO_TOKEN');
-export class RadonClient extends CommandClient {
+export class RadonClient extends InteractionCommandClient {
     client!: ShardClient;
     api: Api;
     constructor(client: ShardClient) {
@@ -30,11 +30,12 @@ export class RadonClient extends CommandClient {
 
     async start() {
         try {
-            await super.run();
+            await this.client.run()
             const clientUser = this.client.user
-            console.log('Starting Bot')
+            console.log('Starting Bot...')
             if (clientUser) {
                 console.log(`Logged in as ${clientUser.username}#${clientUser.discriminator}`)
+                console.log(`Shard Count: ${this.client.shardCount}`)
             }
         } catch (error) {
             console.error("Problem logging in", error)
