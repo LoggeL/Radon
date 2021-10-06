@@ -18,13 +18,18 @@ export class RadonCommandClient extends CommandClient {
     }
 
 
+    onPrefixCheck() { return ['x!']; }
+
     async start() {
         try {
             const commandsdir = join(process.cwd(), 'dist', 'commands');
             const commandstat  = await stat(commandsdir)
                 .then((stat) => stat.isDirectory())
                 .catch(() => false);
-            
+            this.client.on('gatewayReady', () => {
+                console.log(process.memoryUsage());
+                
+            });
             if (commandstat) {
                 await this.addMultipleIn(
                     commandsdir, {
