@@ -37,32 +37,32 @@ delayed-stream@~1.0.0:
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
 
-detritus-client-rest@^0.10.5-beta.1:
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/detritus-client-rest/-/detritus-client-rest-0.10.5.tgz#ca2a12dd11a886b6337f5b7af2fdc42089f4d681"
-  integrity sha512-N5Bx2/Cru6OxwEqACtm4QghAQb/USa7a4OrrxGYQtgJch7/Rey739FdDBUWJexxfRUGG07IZSZmfiaiI5Tidjw==
+detritus-client-rest@^0.10.6-beta.1:
+  version "0.10.6-beta.1"
+  resolved "https://registry.yarnpkg.com/detritus-client-rest/-/detritus-client-rest-0.10.6-beta.1.tgz#5ff434bfb1e193cec1651d262cfda5f302e2f291"
+  integrity sha512-/4Pxz5/zU6391qS4XzG2thHVvbpl/P/LycobzfPib4W+Cv+seh9Bxw0QrqZGhFyOVv1Jhp5WBCLBEESePBaDQQ==
   dependencies:
     detritus-rest "^0.7.0"
     detritus-utils "^0.4.0"
 
-detritus-client-socket@^0.8.3-beta.0:
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/detritus-client-socket/-/detritus-client-socket-0.8.3.tgz#a23143468f0e70e40b8bdfc588e69cac92d843f1"
-  integrity sha512-gMMD5Xo14A69wGxmpAwdQsh5TFaxpjq7LRC6cTWAvs+p34dSiKrU7sBnS+8IsnQt8uvjradhAxKqGkJK2xo6Jg==
+detritus-client-socket@^0.8.4-beta.1:
+  version "0.8.4-beta.1"
+  resolved "https://registry.yarnpkg.com/detritus-client-socket/-/detritus-client-socket-0.8.4-beta.1.tgz#e9ab5fc33489c908a9a26e4beef6a3707d81194a"
+  integrity sha512-JnQ8mUBMzukWbD3TlzYobH3qI0oDIUdK5zSFObYpg7ahKYVTlUGxY2Yp3L4zluqSNPSGGADwQcrMcBdIyrINgQ==
   dependencies:
     "@types/node" "^14.17.1"
     detritus-utils "^0.4.0"
     ws "^7.4.6"
 
-detritus-client@^0.16.3:
-  version "0.16.3"
-  resolved "https://registry.yarnpkg.com/detritus-client/-/detritus-client-0.16.3.tgz#aae28b73a2a6891c244935af30f60ab728d7d065"
-  integrity sha512-+hwMunnPEvJOazhTFS6BJd25nv3sreLagDhlclPDzwkdwkK++svyiKCnZcEHnhmlSNTjzYcdHL9X7G2d7dOxaA==
+detritus-client@^0.16.4-beta.4:
+  version "0.16.4-beta.4"
+  resolved "https://registry.yarnpkg.com/detritus-client/-/detritus-client-0.16.4-beta.4.tgz#0ee23ceffbcc3a8c1916ffd62b56848124532ed0"
+  integrity sha512-rEhORrNmwLs2Lk8+DdP5wSggK1FLG1kfguwoU6LUp+ATEzzrX2r1F24l9C1yQar7hMHC6bcOhGqt1fq9lazy/A==
   dependencies:
     "@types/node" "^14.17.2"
     "@types/node-fetch" "^2.5.10"
-    detritus-client-rest "^0.10.5-beta.1"
-    detritus-client-socket "^0.8.3-beta.0"
+    detritus-client-rest "^0.10.6-beta.1"
+    detritus-client-socket "^0.8.4-beta.1"
     detritus-utils "^0.4.0"
 
 detritus-rest@^0.7.0:
