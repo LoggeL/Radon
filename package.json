@@ -5,7 +5,8 @@
     "typescript": "^4.3.5"
   },
   "scripts": {
-    "dev": "tsc && node -r dotenv/config dist/index # --dev"
+    "dev": "tsc && node -r dotenv/config dist/index # --dev",
+    "nodemon": "nodemon --exec \"tsc && node -r dotenv/config dist/index # --dev\" --watch src -e ts --delay 10"
   },
   "name": "radon",
   "version": "1.0.0",
